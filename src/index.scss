@@ -1,0 +1,79 @@
+$dark_color: #213f7d;
+$primary_color: #39cdcc;
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  max-width: 100%;
+  overflow: hidden;
+}
+// login
+.auth__container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  form {
+    width: 50%;
+    max-width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 74px;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+      rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    .text-group {
+      width: 100%;
+      text-align: left;
+      h2 {
+        height: 55px;
+        margin-top: 48px;
+      }
+      h3 {
+        font-size: small;
+      }
+    }
+    input {
+      height: 50px;
+      width: 100%;
+      outline: none;
+      border-radius: 5px;
+      border: none;
+      padding-left: 8px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    }
+    button {
+      border: none;
+      outline: none;
+      height: 48px;
+      width: 100%;
+
+      color: #fff;
+      background-color: $primary_color;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    a {
+      color: $primary_color;
+      width: 100%;
+      text-decoration: none;
+      font-size: small;
+    }
+  }
+  .img__box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    .header__img {
+      height: auto;
+      margin-top: 106px;
+      margin-left: 132px;
+      margin-bottom: 64px;
+      width: 138.44px;
+    }
+  }
+}
