@@ -1,4 +1,4 @@
-import { Navigate, NavigateFunction } from "react-router-dom";
+import { NavigateFunction } from "react-router-dom";
 import { User } from "../types";
 
 const TOKEN_STORAGE_KEY = "auth_token";
@@ -6,14 +6,17 @@ const TOKEN_STORAGE_KEY = "auth_token";
 export const login = async (
   email: string,
   password: string,
-  navigate: NavigateFunction
+  navigate: NavigateFunction,
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>,
+  setUser: React.Dispatch<React.SetStateAction<User | null>>
 ): Promise<void> => {
   const allLocalUsers = JSON.parse(localStorage.getItem("users") || "[]");
   const logInUser = allLocalUsers.find((user: User) => {
     return user.email === email && user.password === password;
   });
   if (logInUser) {
-    localStorage.setItem("login", JSON.stringify(true));
+    setIsLoggedIn(true);
+    setUser(logInUser);
     return navigate("dashboard");
   }
   return console.log("incorrect credentials");

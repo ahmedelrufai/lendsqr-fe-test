@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as authService from "../services/authService";
 import AutImgs from "./autImgs";
+import { useAuth } from "../context/AuthContext";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
+  const { userState, logged } = useAuth();
+  const [user, setUser] = userState;
+  const [isLoggedIn, setIsLoggedIn] = logged;
+
   const { login } = authService;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +17,7 @@ export const LoginForm = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      await login(email, password, navigate);
+      await login(email, password, navigate, setIsLoggedIn, setUser);
       // handle successful login
     } catch (error) {
       // handle login error
