@@ -183,30 +183,12 @@ export default function CustomPaginationActionsTable({ state = [] }) {
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableHead>
           <TableRow>
-            <TableCell width="130">
-              Organization
-              <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
-            </TableCell>
-            <TableCell>
-              User Name
-              <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
-            </TableCell>
-            <TableCell width="130">
-              Email
-              <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
-            </TableCell>
-            <TableCell width="170">
-              Phone Number
-              <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
-            </TableCell>
-            <TableCell>
-              Date Joined
-              <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
-            </TableCell>
-            <TableCell>
-              Status
-              <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
-            </TableCell>
+            <TableCell component="th">Organization</TableCell>
+            <TableCell component="th">User Name</TableCell>
+            <TableCell component="th">Email</TableCell>
+            <TableCell component="th">Phone Number</TableCell>
+            <TableCell component="th">Date Joined</TableCell>
+            <TableCell component="th">Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -236,7 +218,7 @@ export default function CustomPaginationActionsTable({ state = [] }) {
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[10, 25, 100, { label: "All", value: -1 }]}
-              colSpan={3}
+              colSpan={7}
               count={rows.length}
               rowsPerPage={rowsPerPage}
               page={page}
