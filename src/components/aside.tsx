@@ -18,15 +18,15 @@ export default function Aside() {
   return (
     <div className="aside">
       <div className="org__and__dash">
-        <p>
+        <a href="#">
           <FaBriefcase className="icon" />
           <p>Switch Organization</p>
           <FaChevronDown />
-        </p>
-        <p>
+        </a>
+        <a href="#">
           <FaHome className="icon" />
           Dashboard
-        </p>
+        </a>
       </div>
       <p className="nav__header">Custormers</p>
       <div className="custormers">

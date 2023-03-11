@@ -119,7 +119,14 @@ function createData(
 ) {
   return { id, orgName, userName, email, phoneNumber, createdAt, status };
 }
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = date.toLocaleString("en-US", { month: "long" });
+  const day = date.getDate();
 
+  return `${month} ${day}, ${year}`;
+};
 export default function CustomPaginationActionsTable({ state = [] }) {
   const { useEffect, useState } = React;
   const [rows, setRows] = useState<Row[]>([]);
@@ -176,7 +183,7 @@ export default function CustomPaginationActionsTable({ state = [] }) {
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableHead>
           <TableRow>
-            <TableCell width="120">
+            <TableCell width="130">
               Organization
               <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
             </TableCell>
@@ -184,11 +191,11 @@ export default function CustomPaginationActionsTable({ state = [] }) {
               User Name
               <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
             </TableCell>
-            <TableCell>
+            <TableCell width="130">
               Email
               <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
             </TableCell>
-            <TableCell>
+            <TableCell width="170">
               Phone Number
               <FaBars fontSize="10px" style={{ marginLeft: "4px" }} />
             </TableCell>
@@ -210,9 +217,11 @@ export default function CustomPaginationActionsTable({ state = [] }) {
             <TableRow key={row.id}>
               <TableCell>{row.orgName}</TableCell>
               <TableCell style={{ width: 160 }}>{row.userName}</TableCell>
-              <TableCell style={{ width: 160 }}>{row.email}</TableCell>
+              <TableCell style={{ width: 120 }}>{row.email}</TableCell>
               <TableCell style={{ width: 160 }}>{row.phoneNumber}</TableCell>
-              <TableCell style={{ width: 160 }}>{row.createdAt}</TableCell>
+              <TableCell style={{ width: 160 }}>
+                {formatDate(row.createdAt)}
+              </TableCell>
               <TableCell style={{ width: 160 }}>{row.status}</TableCell>
               <TableCell style={{ width: 160 }}>{row.actionBtn}</TableCell>
             </TableRow>

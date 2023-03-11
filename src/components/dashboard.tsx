@@ -22,10 +22,13 @@ function Dashboard() {
       <div className="aside__and__main">
         <Aside />
         <div className="main">
+          <h2 className="heading__primary">Users</h2>
           <Sumery />
 
           {state?.length !== 0 ? (
-            <CustomPaginationActionsTable state={state} />
+            <div className="table__container">
+              <CustomPaginationActionsTable state={state} />
+            </div>
           ) : (
             "loading..."
           )}
