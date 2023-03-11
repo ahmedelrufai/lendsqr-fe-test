@@ -19,7 +19,7 @@ export const login = async (
     setUser(logInUser);
     return navigate("dashboard");
   }
-  return console.log("incorrect credentials");
+  return alert("incorrect credentials");
 };
 
 export const logout = (): void => {
