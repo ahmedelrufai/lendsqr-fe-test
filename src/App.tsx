@@ -4,6 +4,7 @@ import { LoginForm } from "./components/loginForm";
 import PrivateRoute from "./components/privateRoute";
 import Dashboard from "./components/dashboard";
 import { SignUpForm } from "./components/signUpForm";
+import Detail from "./components/detail";
 
 function App() {
   return (
@@ -17,6 +18,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/details/:id"
+            element={
+              <PrivateRoute>
+                <Detail />
               </PrivateRoute>
             }
           />
